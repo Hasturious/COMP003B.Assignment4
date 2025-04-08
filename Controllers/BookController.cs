@@ -5,26 +5,47 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace COMP003B.Assignment4.Controllers
 {
-    [Route("book")]
     public class BookController : Controller
     {
-        [HttpGet("add")]
-        public IActionResult addBook()
+        //Hard coded books
+        //books/list
+        public IActionResult List()
         {
+            var books = new List<string>
+            {
+                "Book 1",
+                "Book 2",
+                "Book 3"
+            };
+            return View(books);
+        }
+
+        //books/purchase
+        [HttpGet]
+        public IActionResult Purchase()
+        {
+            ViewData["Title"] = "Purchase a Book";
             return View();
         }
 
-        [HttpPost("add")]
-        public IActionResult AddBook(BookModel book)
+        //books/purchase
+        [HttpPost]
+        public IActionResult Purchase(string bookTitle, string address, string email)
         {
-            if (Model.IsValid)
+            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(email))
             {
-                return RedirectToAction("Success");
+                ModelState.AddModelError("", "Missing Field(s)");
+                return View();
             }
+            return RedirectToAction("PurchaseConfirmation", new { book = bookTitle });
         }
-        [HttpGet("success")]
-        public IActionResult Success()
+
+        //book/confirmpuchase-XXX
+        [HttpGet]
+        public IActionResult ConfirmPurchase(string book)
         {
+            ViewData["Title"] = "[Purchase Confirmation]";
+            ViewData["Book"] = book;
             return View();
         }
     }
