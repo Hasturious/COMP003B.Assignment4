@@ -29,12 +29,12 @@ namespace COMP003B.Assignment4.Controllers
             return RedirectToAction("GameSpecs", new { subscribed = true });
         }
 
-        //GET /page2 
+        //GET /productlist
         [HttpGet]
-        [Route("/page2")]
-        public IActionResult Page2()
+        [Route("/productlist")]
+        public IActionResult ProductList()
         {
-            ViewData["Title"] = "Eldritch Tomes - Product List";
+            ViewData["Title"] = "Rule Books - Product List";
             return View();
         }
     }

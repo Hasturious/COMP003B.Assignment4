@@ -15,6 +15,14 @@
         </ul>
     </div>
 
-    <!-- Optional: Space for future POST form -->
-    <!-- <partial name="_NewsletterForm" /> -->
+    <!-- Form to accses subscription page -->
+    <form asp-action="Subscribe" method="post">
+        <input type="email" name="email" placeholder="Your email" required />
+        <button type="submit">Subscribe to Updates</button>
+    </form>
+    <!---->
+    @if (Context.Request.Query["subscribed"] == "True")
+    {
+        <div class="alert alert-success mt-3">Thank You!</div>
+    }
 </div>
