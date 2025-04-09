@@ -35,6 +35,9 @@ namespace COMP003B.Assignment4
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
+            app.MapControllers();
+
+
             app.Run();
         }
     }
