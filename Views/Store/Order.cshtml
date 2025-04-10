@@ -10,7 +10,7 @@
     <partial name="_StoreNav" />
 
     <!--Code recycled from assignment 3-->
-    <form asp-action="Order" method="post">
+    <form asp-action="Order" method="post" asp-controller="Store">
         <div class="form-group">
             <label asp-for="BookTitle"></label>
             <input asp-for="BookTitle" class="form-control" />
@@ -35,6 +35,10 @@
             <span asp-validation-for="Address" class="text-danger"></span>
         </div>
 
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary">Purchase</button>
     </form>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

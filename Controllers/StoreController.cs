@@ -1,5 +1,6 @@
 using COMP003B.Assignment4.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace COMP003B.Assignment4.Controllers
 {
@@ -7,7 +8,6 @@ namespace COMP003B.Assignment4.Controllers
     {  
         //sends user to order page
         [HttpGet]
-        [Route("order/{id:int?}")]
         public IActionResult Order(int id)
         {
             return View(new Order());
@@ -18,24 +18,31 @@ namespace COMP003B.Assignment4.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewData["Title"] = "Invalid Order Form";
                 return View(order);
             }
 
-            var confirm = new Order
+            return RedirectToAction("Success", new
             {
                 BookTitle = order.BookTitle,
                 Amount = order.Amount,
                 Email = order.Email,
                 Address = order.Address
-            };
-
-            return RedirectToAction("Success", confirm);
+            });
         }
-        //sends user to success paage
+        //sends user to success page
+
         [HttpGet]
-        public IActionResult Success(Order confirm)
+        public IActionResult Success(string bookTitle, int amount, string email, string address)
         {
-            return View(confirm);
+            var order = new Order
+            {
+                BookTitle = bookTitle,
+                Amount = amount,
+                Email = email,
+                Address = address
+            };            
+            return View(order);
         }
     }
     
