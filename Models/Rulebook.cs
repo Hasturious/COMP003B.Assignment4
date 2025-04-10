@@ -10,14 +10,14 @@ namespace COMP003B.Assignment4.Models
 
         [Required]
         [Range(1, 10)]
-        public string Edition { get; set; }
+        public int Edition { get; set; }
 
         [Required]
         [Range(1990, 2030)]
-        public string Publication { get; set; }
+        public int Publication { get; set; }
 
         [Required]
         [Range(50, 1000)]
-        public string PageNumbers { get; set; }
+        public int PageNumbers { get; set; }
     }
 }
