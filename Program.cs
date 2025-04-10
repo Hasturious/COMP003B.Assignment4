@@ -35,6 +35,11 @@ namespace COMP003B.Assignment4
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
+            app.MapControllerRoute(
+                name: "store",
+                pattern: "store/{action=Order}/{id?}",
+                defaults: new { controller = "Store" });
+
             app.MapControllers();
 
 

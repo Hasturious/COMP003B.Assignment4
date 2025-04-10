@@ -17,8 +17,8 @@
 
     <!-- Form to accses subscription page -->
     <form asp-action="Subscribe" method="post">
-        <input type="email" name="email" placeholder="Your email" required />
-        <button type="submit">Subscribe to Updates</button>
+        <input type="email" name="email" placeholder="Email" required />
+        <button type="submit">Subscribe to Newsletter</button>
     </form>
     <!---->
     @if (Context.Request.Query["subscribed"] == "True")
