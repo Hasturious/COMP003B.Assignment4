@@ -5,5 +5,14 @@
 
 <div class="cthulhu-theme">
     <h1>@ViewData["Title"]</h1>
+    <partial name="_StoreNav" />
     <h2>The books will be delierved, and so will the horrors</h2>
+    <!--The code below was taken from assignment3 just with all the needed bits taken out-->
+    <ul>
+        <li><strong>The book ordered is </strong> @Model.BookTitle</li>
+        <li><strong>The ammount of have ordered is </strong> @Model.Amount</li>
+        <li><strong>The email you have entered is Email: </strong> @Model.Email</li>
+        <li><strong>The shipping address is </strong> @Model.Address</li>
+    </ul>
+
 </div>

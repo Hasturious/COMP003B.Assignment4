@@ -9,6 +9,9 @@ namespace COMP003B.Assignment4.Models
         public string BookTitle { get; set; }
 
         [Required]
+        public string Amount { get; set; }
+
+        [Required]
         [MinLength(3)]
         public string Address { get; set; }
 

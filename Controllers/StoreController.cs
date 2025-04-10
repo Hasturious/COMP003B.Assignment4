@@ -5,37 +5,35 @@ namespace COMP003B.Assignment4.Controllers
 {
     public class StoreController : Controller
     {
+        //sends user to order page
         [HttpGet]
         public IActionResult Order()
         {
-            ViewData["Title"] = "Order Eldritch Tomes";
             return View(new Order());
         }
-
+        //logs the order details 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Order(Order order)
         {
             if (!ModelState.IsValid)
             {
-                ViewData["Title"] = "Order Eldritch Tomes - Error";
                 return View(order);
             }
 
-            var confirm= new Order
+            var confirm = new Order
             {
                 BookTitle = order.BookTitle,
+                Amount = order.Amount,
                 Email = order.Email,
                 Address = order.Address
             };
 
             return RedirectToAction("Success", confirm);
         }
-
+        //sends user to success paage
         [HttpGet]
         public IActionResult Success(Order confirm)
         {
-            ViewData["Title"] = "Order Confirmed";
             return View(confirm);
         }
     }

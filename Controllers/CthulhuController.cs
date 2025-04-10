@@ -6,6 +6,7 @@ namespace COMP003B.Assignment4.Controllers
     public class CthulhuController : Controller
     {
         //GET /call-of-cthulhu
+        //Displays the gamespecs page
         [HttpGet]
         [Route("")]
         public IActionResult GameSpecs()
@@ -14,7 +15,8 @@ namespace COMP003B.Assignment4.Controllers
             return View();
         }
 
-        //POST /call-of-cthulhu/subscribe (NEW)
+        //POST /call-of-cthulhu/subscribe
+        //This adds a form to "subscribe" to a sort of newletter
         [HttpPost]
         [Route("subscribe")]
         public IActionResult Subscribe(string email)
@@ -30,6 +32,7 @@ namespace COMP003B.Assignment4.Controllers
         }
 
         //GET /productlist
+        //Displays the productlist page
         [HttpGet]
         [Route("/productlist")]
         public IActionResult ProductList()

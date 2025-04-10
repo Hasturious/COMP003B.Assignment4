@@ -20,7 +20,8 @@
         <input type="email" name="email" placeholder="Email" required />
         <button type="submit">Subscribe to Newsletter</button>
     </form>
-    <!---->
+    <!--Thank you stack overflow people teaching me how to read values. Im sure there was a simplier way but whatever-->
+    <!--https://stackoverflow.com/questions/41577376/how-to-read-values-from-the-querystring-with-asp-net-core#41577446--->
     @if (Context.Request.Query["subscribed"] == "True")
     {
         <div class="alert alert-success mt-3">Thank You!</div>

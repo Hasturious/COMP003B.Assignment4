@@ -1,34 +1,40 @@
 ﻿@model COMP003B.Assignment4.Models.Order
 @{
-    ViewData["Title"] = "Call of Cthulhu - Specifications";
+    ViewData["Title"] = "Call of Cthulhu - Book Orders";
     Layout = "_Layout";
 }
 
-<div class="cthulhu-theme">
+<div class="cthulhu-theme"> <!--This is for CSS if I get the time to do it-->
     <h1>@ViewData["Title"]</h1>
 
-    <div class="game-specs">
-        <!--Code recycled from assignment 3-->
-        <form asp-action="Order" method="post">
-            <div class="form-group">
-                <label asp-for="BookTitle"></label>
-                <input asp-for="BookTitle" class="form-control" />
-                <span asp-validation-for="BookTitle" class="text-danger"></span>
-            </div>
+    <partial name="_StoreNav" />
 
-            <div class="form-group">
-                <label asp-for="Email"></label>
-                <input asp-for="Email" type="email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
+    <!--Code recycled from assignment 3-->
+    <form asp-action="Order" method="post">
+        <div class="form-group">
+            <label asp-for="BookTitle"></label>
+            <input asp-for="BookTitle" class="form-control" />
+            <span asp-validation-for="BookTitle" class="text-danger"></span>
+        </div>
 
-            <div class="form-group">
-                <label asp-for="Address"></label>
-                <input asp-for="Address" class="form-control"/>
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
+        <div class="form-group">
+            <label asp-for="Amount"></label>
+            <input asp-for="Amount" class="form-control" />
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div>
 
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
-    </div>
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" type="email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Address"></label>
+            <input asp-for="Address" class="form-control"/>
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
 </div>
