@@ -5,10 +5,10 @@ using System.Net;
 namespace COMP003B.Assignment4.Controllers
 {
     public class StoreController : Controller
-    {  
+    {
         //sends user to order page
         [HttpGet]
-        public IActionResult Order(int id)
+        public IActionResult Order(int? id)
         {
             return View(new Order());
         }
