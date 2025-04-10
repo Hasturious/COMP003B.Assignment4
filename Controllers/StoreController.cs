@@ -4,10 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace COMP003B.Assignment4.Controllers
 {
     public class StoreController : Controller
-    {
+    {  
         //sends user to order page
         [HttpGet]
-        public IActionResult Order()
+        [Route("order/{id:int?}")]
+        public IActionResult Order(int id)
         {
             return View(new Order());
         }
