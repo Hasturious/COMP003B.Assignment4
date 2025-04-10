@@ -6,12 +6,22 @@
 <div class="cthulhu-theme">
     <h1>@ViewData["Title"]</h1>
 
-    <div class="game-specs">
-        <h2>Core Mechanics</h2>
-        <ul>
-            <li>D100 system</li>
-            <li>Sanity mechanics</li>
-            <li>1920s setting</li>
-        </ul>
+    <!--Bootstrap isnt always the prettiest thing but I am glad i kept my old CSS repositories-->
+    <!--Basicly this is a flexbox which "flexes" the items in grid to fit into the screen size. As I zoom in 2 columns become 1, so this may be useful for mobile use-->
+    <div class="row row-cols-1 row-cols-md-2">
+        <!---C# intregation with HTML is a game changer-->
+        @foreach (var book in Model)
+        {
+            <div class="col">                
+                <div class="card-body">
+                    <h3><strong>@book.Title</strong></h3>
+                    <h4><strong>Edition</strong> @book.Edition</h4>
+                    <p class="card-text text-muted">
+                        Published: @book.Publication
+                        Page Count: @book.PageNumbers
+                    </p>
+                </div>              
+            </div>
+        }
     </div>
 </div>
